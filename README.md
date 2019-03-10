@@ -6,17 +6,25 @@ Firebase Authentication and Updation on Real-time Databse
 Project Level Build.gradle Depedencies:-
 
 dependencies {
+
         //Add the below one to the existing one in the new line
+        
         classpath 'com.google.gms:google-services:4.0.1'
+        
+        
     }
     
 App Level Build.gradle Dependencies:-
 
 dependencies {
+
       //Add these to the existing dependencies
     implementation 'com.google.firebase:firebase-core:16.0.1'             //firebase core
+    
     implementation 'com.google.firebase:firebase-auth:16.0.1'             //firebase authentication
+    
     implementation 'com.google.firebase:firebase-database:16.0.1'         //firebase database
+    
     }
  
  
@@ -57,6 +65,7 @@ Logged In Page with database hands on - ProfileActivity
 If you like it, Leave a star on the repository - https://github.com/Uraj14/Firebase20
 
 Regards,
+
 Ujjawal Raj
 
 
