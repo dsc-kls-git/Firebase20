@@ -1,8 +1,7 @@
 # Firebase20
 Firebase Authentication and Updation on Real-time Databse
 
-1. 
-DEPENDENCIES
+1. DEPENDENCIES
 
 Project Level Build.gradle Depedencies:-
 
@@ -18,12 +17,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.1'             //firebase core
     implementation 'com.google.firebase:firebase-auth:16.0.1'             //firebase authentication
     implementation 'com.google.firebase:firebase-database:16.0.1'         //firebase database
-    
+    }
+ 
  
  2. CODE FOR REGISTER AND LOGIN
  
  The code of Registration(MainActivity) is given along with the code for Login(LoginActivity) is also given
  Both of them works on the FirebaseAuth library.
+ 
+ 
  
  3. CONFIGURING THE REAL-TIME Database in Firebase
  
@@ -53,6 +55,7 @@ Login - LoginActivity
 Logged In Page with database hands on - ProfileActivity
 
 If you like it, Leave a star on the repository - https://github.com/Uraj14/Firebase20
+
 Regards,
 Ujjawal Raj
 
