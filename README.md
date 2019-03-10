@@ -30,7 +30,8 @@ dependencies {
  
  2. CODE FOR REGISTER AND LOGIN
  
- The code of Registration(MainActivity) is given along with the code for Login(LoginActivity) is also given
+ The code of Registration(MainActivity) is given along with the code for Login(LoginActivity).
+ 
  Both of them works on the FirebaseAuth library.
  
  
@@ -38,10 +39,15 @@ dependencies {
  3. CONFIGURING THE REAL-TIME Database in Firebase
  
  Open the Firebase Console https://console.firebase.google.com
- click on Database which is just below the Authentication tab.
+ 
+ click on 'Database' which is just below the 'Authentication' tab.
+ 
  Now, create a database under it using 'create database' and select 'test mode'
+ 
  Your dont have to enter any fields.
- After this, You will see a database control panel appereed to your screen.
+ 
+ After this, You will see a database control panel appeared to your screen.
+ 
  Now, on the Top where 'Database' is wriiten, there must be something like 'Cloud Firestore'. Click on it to change it to Real-Time Database.
  
  After this, do the coding part.
