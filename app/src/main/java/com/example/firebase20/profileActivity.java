@@ -47,7 +47,7 @@ public class profileActivity extends AppCompatActivity {
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
         btnLogout = (Button) findViewById(R.id.btnLogout);
 
-        textViewInfo.setText("Welcome "+user.getEmail());
+        textViewInfo.setText("     Welcome\n"+user.getEmail());
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

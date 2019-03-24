@@ -1,8 +1,13 @@
 package com.example.firebase20;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textViewSignup;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private static final int perm =1;
 
 
     @Override
@@ -35,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         progressDialog = new ProgressDialog(this);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            getPerm();
+        }
 
 
         if(firebaseAuth.getCurrentUser() != null){
@@ -51,6 +61,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnReg.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void getPerm(){
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.INTERNET},perm);
+        }else{
+            return;
+        }
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int code,@NonNull String[] permissions,@NonNull int grantResults[]){
+        if(code == perm){
+            if(grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(getApplicationContext(),"Internet Permission Granted",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(),"Permission Not Granted",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 
     public void register(){
         String email = editTextEmail.getText().toString().trim();
@@ -74,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             progressDialog.dismiss();
+                            firebaseAuth.signOut();
                             Toast.makeText(getApplicationContext(),"User Registration Successful",Toast.LENGTH_SHORT).show();
                             return;
                         }else{

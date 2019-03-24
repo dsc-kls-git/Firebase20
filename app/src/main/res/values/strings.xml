@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Firebase2,0</string>
+    <string name="app_name">Firebase20</string>
     <string name="signin">User Login</string>
     <string name="signup">User Registration</string>
     <string name="rbutton">Register User</string>
